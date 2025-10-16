@@ -1,12 +1,14 @@
 ---
-title: "Using RMarkdown"
-teaching: 10
-exercises: 2
+title: "Metagenomics data processing"
+teaching: 20
+exercises: 0
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using R Markdown and `{sandpaper}`?
+- What are the main approaches for processing metagenomics data?
+- What are metagenome-assembled genomes (MAGs)?
+- What is the meaning of taxonomic and functional profiles
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

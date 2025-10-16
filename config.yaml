@@ -17,7 +17,7 @@ carpentry_description: 'Material for the "Making Sense of Metagenomes" workshop 
 title: 'Making Sense of Metagenomes'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: '2025-16-10'
+created: '2025-10-16'
 
 # Comma-separated list of keywords for the lesson
 keywords: 'metagenomics, microbiome, bioinformatics, multiomics, metabolomics, enrichment analysis'
@@ -62,7 +62,8 @@ contact: 'vinicius.salazar [ at ] unimelb.edu.au'
 
 # Order of episodes in your lesson
 episodes: 
-- introduction.Rmd
+- 01-introduction.Rmd
+- 02-mags-and-profiling.Rmd
 
 # Information for Learners
 learners: 
