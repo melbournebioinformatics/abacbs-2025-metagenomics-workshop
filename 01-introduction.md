@@ -14,8 +14,9 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Explain what metagenomics is at a party.
+- Explain how metagenomics data looks like for a general science audience.
+- Explain the insights that metagenomic data can bring.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -74,31 +75,10 @@ You can add a line with at least three colons and a `solution` tag.
 :::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Figures
-
-You can also include figures generated from R Markdown:
-
-
-``` r
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
-```
-
-<div class="figure" style="text-align: center">
-<img src="fig/01-introduction-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
-<p class="caption">Sun arise each and every morning</p>
-</div>
-
 Or you can use standard markdown for static figures with the following syntax:
 
 `![optional caption that appears below the figure](figure url){alt='alt text for
 accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
 
 ::::::::::::::::::::::::::::::::::::: callout
 
