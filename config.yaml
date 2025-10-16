@@ -7,35 +7,36 @@
 # mb: Melbourne Bioinformatics
 # mig: Melbourne Integrative Genomics
 # wehi: Walter and Eliza Hall Institute
-carpentry: 'uom'
+# abacbs: Australian Bioinformatics and Computational Biology Society
+carpentry: 'abacbs'
 
 # Alt-text description of the lesson.
-carpentry_description: 'Lesson Description'
+carpentry_description: 'Material for the "Making Sense of Metagenomes" workshop for ABACBS 2025 in Adelaide, SA.'
 
 # Overall title for pages.
-title: 'Lesson Title' # FIXME
+title: 'Making Sense of Metagenomes'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: ~ # FIXME
+created: 2025-16-10
 
 # Comma-separated list of keywords for the lesson
-keywords: 'software, data, lesson' # FIXME
+keywords: 'metagenomics, microbiome, bioinformatics, multiomics, metabolomics, enrichment analysis'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha' # FIXME
+life_cycle: 'pre-alpha'
 
 # License of the lesson
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/melbournebioinformatics/workbench-template-rmd' # FIXME
+source: 'https://github.com/melbournebioinformatics/workbench-template-rmd'
 
 # Default branch of your lesson
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'fixme@fixme.org' # FIXME
+contact: 'vinicius.salazar [ at ] unimelb.edu.au'
 
 # Navigation ------------------------------------------------
 #
