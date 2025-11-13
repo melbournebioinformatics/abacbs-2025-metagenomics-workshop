@@ -25,7 +25,7 @@ exercises: 0
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
     BiocManager::install(version = '3.22', ask=FALSE)
-BiocManager::install("TaxSEA", version = "devel")
+BiocManager::install("TaxSEA")
 BiocManager::install("bugsigdbr")
 ```
 

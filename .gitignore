@@ -52,5 +52,3 @@ po/*~
 # renv detritus
 renv/sandbox/
 
-# Custom
-renv/
