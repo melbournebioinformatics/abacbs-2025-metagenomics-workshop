@@ -8,8 +8,8 @@ date: "2025-11-28"
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- What is taxon-set enrichment analysis?
-- How do we get started with the TaxSEA package?
+- Placeholder
+- Placeholder
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -439,3 +439,11 @@ data.frame(Name = names(log2_fold_changes),
                               'Up' = 'steelblue',
                               'Down' = 'firebrick'))
 ```
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Placeholder
+- Placeholder
+- Placeholder
+
+::::::::::::::::::::::::::::::::::::::::::::::::

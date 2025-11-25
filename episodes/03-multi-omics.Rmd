@@ -8,17 +8,16 @@ exercises: 15
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- What is metagenomics?
-- How does metagenomics data look like?
-- What kind of insights can we get from metagenomics data?
+- Placeholder
+- Placeholder
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain what metagenomics is at a party.
-- Explain how metagenomics data looks like for a general science audience.
-- Explain the insights that metagenomic data can bring.
+- Placeholder
+- Placeholder
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -592,3 +591,11 @@ The balanced error rate (BER) remains low, confirming that the DIABLO signature 
 ```{r}
 get.BER(confusion.mat)
 ```
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Placeholder
+- Placeholder
+- Placeholder
+
+::::::::::::::::::::::::::::::::::::::::::::::::
