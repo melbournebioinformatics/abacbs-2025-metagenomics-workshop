@@ -1,5 +1,5 @@
 ---
-title: "Introduction to metagenomics"
+title: "Metagenomic analysis with nf-core workflows"
 teaching: 20
 exercises: 0
 ---
