@@ -106,10 +106,10 @@ sample(TaxSEA_test_data, 4)
 ```
 
 ``` output
-Bifidobacterium_animalis        Turicimonas_muris         Dorea_sp_CAG_317 
-                   1.817                    0.608                    2.162 
-        Actinomyces_oris 
-                   1.336 
+   Bacteroides_xylanisolvens      Gordonibacter_pamelaeae 
+                      -0.813                        0.093 
+   Blautia_hydrogenotrophica Faecalibacterium_prausnitzii 
+                      -0.746                       -4.040 
 ```
 
 The input is a vector of species names and log fold changes.
@@ -199,6 +199,9 @@ allmeta_data = sampleMetadata
 
 # HallAB_2017 dataset
 HallAB_2017_cmd_object = curatedMetagenomicData(pattern = "2021-10-14.HallAB_2017.relative_abundance",counts = TRUE,dryrun = FALSE)
+```
+
+``` r
 HallAB_2017_counts.df = HallAB_2017_cmd_object
 HallAB_2017_counts.df = (HallAB_2017_counts.df$`2021-10-14.HallAB_2017.relative_abundance`)
 
@@ -337,13 +340,7 @@ ggarrange(volcano_plot_all,volcano_fa,scfa_volcano,ncol = 3,nrow=1)
    data.frame(log2FoldChange = HallAB_2017_DA$log2FoldChange[HallAB_2017_DA$Faculatative_anerobes],
               Group = "Facultative anaerobes")
  )
-```
-
-``` error
-Error in data.frame(log2FoldChange = HallAB_2017_DA$log2FoldChange[HallAB_2017_DA$Faculatative_anerobes], : arguments imply differing number of rows: 0, 1
-```
-
-``` r
+ 
  ridge_dat$Group <- factor(
    ridge_dat$Group,
    levels = rev(c("All taxa",
@@ -351,13 +348,7 @@ Error in data.frame(log2FoldChange = HallAB_2017_DA$log2FoldChange[HallAB_2017_D
                   "Skin-associated",
                   "Facultative anaerobes"))
  )
-```
-
-``` error
-Error: object 'ridge_dat' not found
-```
-
-``` r
+ 
  ggplot(ridge_dat,
         aes(x = log2FoldChange,
             y = Group,
@@ -377,9 +368,7 @@ Error: object 'ridge_dat' not found
    ggtitle("log2FC distributions for functional/ecological groups")
 ```
 
-``` error
-Error: object 'ridge_dat' not found
-```
+<img src="fig/02-taxsea-rendered-unnamed-chunk-10-2.png" style="display: block; margin: auto;" />
 
 ## Custom databases
 
@@ -450,7 +439,9 @@ cmd_data <- curatedMetagenomicData(
   counts = TRUE,
   dryrun = FALSE
 )
+```
 
+``` r
 # Convert the extracted data to a count matrix
 counts_data <- assay(cmd_data[[1]])
 # Subset to relevant samples
@@ -515,8 +506,8 @@ custom_taxsea_results <- custom_taxsea_results$custom_sets
 datatable(custom_taxsea_results)
 ```
 
-<!--html_preserve--><div class="datatables html-widget html-fill-item" id="htmlwidget-314defd8c749f7e17aa6" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-314defd8c749f7e17aa6">{"x":{"filter":"none","vertical":false,"data":[["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],[1.119543769360394,-0.3879824092840792,1.338184015953424,1.849569432709268,-0.6707002477465542,-1.411169277303825,0.6960170764832077,1.340148508123332,0.1321514169238954,-0.1249914266662796,0.6086800199417697,-0.3124833654946449,0.4187268857840517],[0.0118725802386351,0.01329696522186961,0.0260205602170516,0.04396131142078909,0.1293477081093432,0.1390625964594388,0.1580926108976503,0.1721450259759667,0.4374982180848367,0.4427549556643566,0.6065049269116362,0.8719580780499743,0.9521634436974848],[0.6171428571428571,0.2673170731707317,0.3218181818181818,0.3453571428571429,0.2542857142857143,0.4495238095238095,0.3,0.3428571428571429,0.3657142857142858,0.2285714285714285,0.2742857142857143,0.2457142857142857,0.1828571428571429],[0.08643027394215246,0.08643027394215246,0.1127557609405569,0.1428742621175645,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.5755814423636636,0.5755814423636636,0.7167785499864792,0.9446212512208054,0.9521634436974848]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxonSetName<\/th>\n      <th>median_rank_of_set_members<\/th>\n      <th>PValue<\/th>\n      <th>Test_statistic<\/th>\n      <th>FDR<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxonSetName","targets":1},{"name":"median_rank_of_set_members","targets":2},{"name":"PValue","targets":3},{"name":"Test_statistic","targets":4},{"name":"FDR","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div class="datatables html-widget html-fill-item" id="htmlwidget-d68749de39512fe0b2c9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d68749de39512fe0b2c9">{"x":{"filter":"none","vertical":false,"data":[["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],[1.119543769360394,-0.3879824092840792,1.338184015953424,1.849569432709268,-0.6707002477465542,-1.411169277303825,0.6960170764832077,1.340148508123332,0.1321514169238954,-0.1249914266662796,0.6086800199417697,-0.3124833654946449,0.4187268857840517],[0.0118725802386351,0.01329696522186961,0.0260205602170516,0.04396131142078909,0.1293477081093432,0.1390625964594388,0.1580926108976503,0.1721450259759667,0.4374982180848367,0.4427549556643566,0.6065049269116362,0.8719580780499743,0.9521634436974848],[0.6171428571428571,0.2673170731707317,0.3218181818181818,0.3453571428571429,0.2542857142857143,0.4495238095238095,0.3,0.3428571428571429,0.3657142857142858,0.2285714285714285,0.2742857142857143,0.2457142857142857,0.1828571428571429],[0.08643027394215246,0.08643027394215246,0.1127557609405569,0.1428742621175645,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.5755814423636636,0.5755814423636636,0.7167785499864792,0.9446212512208054,0.9521634436974848]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxonSetName<\/th>\n      <th>median_rank_of_set_members<\/th>\n      <th>PValue<\/th>\n      <th>Test_statistic<\/th>\n      <th>FDR<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxonSetName","targets":1},{"name":"median_rank_of_set_members","targets":2},{"name":"PValue","targets":3},{"name":"Test_statistic","targets":4},{"name":"FDR","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ``` r
 # plotting

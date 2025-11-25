@@ -51,7 +51,7 @@ Loading required package: ggplot2
 
 ``` output
 
-Loaded mixOmics 6.32.0
+Loaded mixOmics 6.34.0
 Thank you for using mixOmics!
 Tutorials: http://mixomics.org
 Bookdown vignette: https://mixomicsteam.github.io/Bookdown
@@ -517,19 +517,19 @@ perf.diablo$error.rate
 ``` output
 $microb
        max.dist centroids.dist mahalanobis.dist
-comp1 0.1165217      0.1226087        0.1226087
-comp2 0.1260870      0.1208696        0.1243478
-comp3 0.1391304      0.1182609        0.1295652
-comp4 0.1460870      0.1226087        0.1426087
-comp5 0.1452174      0.1243478        0.1486957
+comp1 0.1156522      0.1226087        0.1226087
+comp2 0.1234783      0.1200000        0.1243478
+comp3 0.1339130      0.1200000        0.1200000
+comp4 0.1478261      0.1234783        0.1478261
+comp5 0.1513043      0.1234783        0.1478261
 
 $metab
        max.dist centroids.dist mahalanobis.dist
-comp1 0.1739130      0.1913043        0.1913043
-comp2 0.1556522      0.1495652        0.1504348
-comp3 0.1339130      0.1417391        0.1295652
-comp4 0.1365217      0.1504348        0.1417391
-comp5 0.1330435      0.1530435        0.1365217
+comp1 0.1713043      0.1930435        0.1930435
+comp2 0.1486957      0.1547826        0.1539130
+comp3 0.1269565      0.1373913        0.1313043
+comp4 0.1321739      0.1469565        0.1304348
+comp5 0.1278261      0.1469565        0.1339130
 ```
 
 The above shows the cross-validated error rates for the microbiome and metabolomics blocks across 1–5 components, evaluated under three different prediction distance metrics (max.dist, centroids.dist, mahalanobis.dist). Lower values indicate better classification performance.
@@ -567,8 +567,8 @@ perf.diablo$choice.ncomp$WeightedVote
 
 ``` output
             max.dist centroids.dist mahalanobis.dist
-Overall.ER         1              1                1
-Overall.BER        1              1                1
+Overall.ER         1              2                3
+Overall.BER        1              2                1
 ```
 
 *WeightedVote.error.rate: Prediction is based on a weighted vote across components, where early components get more weight (because they usually capture more discriminative signal). This tends to work well when signal strength is concentrated in the first component.*
@@ -641,10 +641,10 @@ list.keepX
 
 ``` output
 $microb
-[1] 25  5
+[1] 6 5
 
 $metab
-[1] 5 6
+[1] 30 20
 ```
 
 ### Final DIABLO model
@@ -791,10 +791,10 @@ perf.diablo$MajorityVote.error.rate
 ``` output
 $centroids.dist
                 comp1     comp2
-CD          0.2305556 0.2291667
-Control     0.1604651 0.1581395
-Overall.ER  0.2043478 0.2026087
-Overall.BER 0.1955103 0.1936531
+CD          0.2750000 0.2416667
+Control     0.1674419 0.1651163
+Overall.ER  0.2347826 0.2130435
+Overall.BER 0.2212209 0.2033915
 ```
 
 ``` r
@@ -803,10 +803,10 @@ perf.diablo$WeightedPredict.error.rate
 
 ``` output
                 comp1     comp2
-CD          0.1222222 0.1513889
-Control     0.1209302 0.1325581
-Overall.ER  0.1217391 0.1443478
-Overall.BER 0.1215762 0.1419735
+CD          0.1027778 0.1583333
+Control     0.1581395 0.1511628
+Overall.ER  0.1234783 0.1556522
+Overall.BER 0.1304587 0.1547481
 ```
 
 From the results above, it can be seen that the error rate is quite low across the board, suggesting good classification performance. Let's try the model on the test set to see how good it is at classifying novel samples.
@@ -842,7 +842,7 @@ confusion.mat
 
 ``` output
         predicted.as.CD predicted.as.Control
-CD                   14                    2
+CD                   13                    3
 Control               2                   11
 ```
 
@@ -854,7 +854,7 @@ get.BER(confusion.mat)
 ```
 
 ``` output
-[1] 0.1394231
+[1] 0.1706731
 ```
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
