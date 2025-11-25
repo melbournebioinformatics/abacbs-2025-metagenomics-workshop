@@ -18,13 +18,13 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="abacbs-logo" alt="Material for the &amp;quot;Making Sense of Metagenomes&amp;quot; workshop for ABACBS 2025 in Adelaide, SA." src="../assets/images/abacbs-logo.svg"><span class="badge text-bg-danger">
-          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
+        <img id="abacbs-logo" alt="Material for the &amp;quot;Making Sense of Metagenomes&amp;quot; workshop for ABACBS 2025 in Adelaide, SA." src="../assets/images/abacbs-logo.svg"><span class="badge text-bg-warning">
+          <abbr title="This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.">
             <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
-              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
-              Pre-Alpha
+              <i aria-hidden="true" class="icon" data-feather="alert-triangle" style="border-radius: 5px"></i>
+              Alpha
             </a>
-            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+            <span class="visually-hidden">This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.</span>
           </abbr>
         </span>
 
@@ -389,7 +389,7 @@ pre-processing.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>
-Loaded mixOmics 6.32.0
+Loaded mixOmics 6.34.0
 Thank you for using mixOmics!
 Tutorials: http://mixomics.org
 Bookdown vignette: https://mixomicsteam.github.io/Bookdown
@@ -927,19 +927,19 @@ method.</em></p>
 </h3>
 <pre class="output" tabindex="0"><code>$microb
        max.dist centroids.dist mahalanobis.dist
-comp1 0.1165217      0.1226087        0.1226087
-comp2 0.1260870      0.1208696        0.1243478
-comp3 0.1391304      0.1182609        0.1295652
-comp4 0.1460870      0.1226087        0.1426087
-comp5 0.1452174      0.1243478        0.1486957
+comp1 0.1156522      0.1226087        0.1226087
+comp2 0.1234783      0.1200000        0.1243478
+comp3 0.1339130      0.1200000        0.1200000
+comp4 0.1478261      0.1234783        0.1478261
+comp5 0.1513043      0.1234783        0.1478261
 
 $metab
        max.dist centroids.dist mahalanobis.dist
-comp1 0.1739130      0.1913043        0.1913043
-comp2 0.1556522      0.1495652        0.1504348
-comp3 0.1339130      0.1417391        0.1295652
-comp4 0.1365217      0.1504348        0.1417391
-comp5 0.1330435      0.1530435        0.1365217</code></pre>
+comp1 0.1713043      0.1930435        0.1930435
+comp2 0.1486957      0.1547826        0.1539130
+comp3 0.1269565      0.1373913        0.1313043
+comp4 0.1321739      0.1469565        0.1304348
+comp5 0.1278261      0.1469565        0.1339130</code></pre>
 </div>
 <p>The above shows the cross-validated error rates for the microbiome
 and metabolomics blocks across 1–5 components, evaluated under three
@@ -994,8 +994,8 @@ from Component 1.</em></p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>            max.dist centroids.dist mahalanobis.dist
-Overall.ER         1              1                1
-Overall.BER        1              1                1</code></pre>
+Overall.ER         1              2                3
+Overall.BER        1              2                1</code></pre>
 </div>
 <p><em>WeightedVote.error.rate: Prediction is based on a weighted vote
 across components, where early components get more weight (because they
@@ -1086,10 +1086,10 @@ You can look into the 'BPPARAM' argument to speed up computation time.</code></p
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>$microb
-[1] 25  5
+[1] 6 5
 
 $metab
-[1] 5 6</code></pre>
+[1] 30 20</code></pre>
 </div>
 </div>
 </div>
@@ -1267,10 +1267,10 @@ component.</em></p>
 </h3>
 <pre class="output" tabindex="0"><code>$centroids.dist
                 comp1     comp2
-CD          0.2305556 0.2291667
-Control     0.1604651 0.1581395
-Overall.ER  0.2043478 0.2026087
-Overall.BER 0.1955103 0.1936531</code></pre>
+CD          0.2750000 0.2416667
+Control     0.1674419 0.1651163
+Overall.ER  0.2347826 0.2130435
+Overall.BER 0.2212209 0.2033915</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1282,10 +1282,10 @@ Overall.BER 0.1955103 0.1936531</code></pre>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>                comp1     comp2
-CD          0.1222222 0.1513889
-Control     0.1209302 0.1325581
-Overall.ER  0.1217391 0.1443478
-Overall.BER 0.1215762 0.1419735</code></pre>
+CD          0.1027778 0.1583333
+Control     0.1581395 0.1511628
+Overall.ER  0.1234783 0.1556522
+Overall.BER 0.1304587 0.1547481</code></pre>
 </div>
 <p>From the results above, it can be seen that the error rate is quite
 low across the board, suggesting good classification performance. Let’s
@@ -1327,7 +1327,7 @@ true labels.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>        predicted.as.CD predicted.as.Control
-CD                   14                    2
+CD                   13                    3
 Control               2                   11</code></pre>
 </div>
 <p>The balanced error rate (BER) remains low, confirming that the DIABLO
@@ -1342,7 +1342,7 @@ similarly across both classes.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.1394231</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.1706731</code></pre>
 </div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">

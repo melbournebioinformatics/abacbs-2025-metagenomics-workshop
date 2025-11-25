@@ -18,13 +18,13 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="abacbs-logo" alt="Material for the &amp;quot;Making Sense of Metagenomes&amp;quot; workshop for ABACBS 2025 in Adelaide, SA." src="assets/images/abacbs-logo.svg"><span class="badge text-bg-danger">
-          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
+        <img id="abacbs-logo" alt="Material for the &amp;quot;Making Sense of Metagenomes&amp;quot; workshop for ABACBS 2025 in Adelaide, SA." src="assets/images/abacbs-logo.svg"><span class="badge text-bg-warning">
+          <abbr title="This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.">
             <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
-              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
-              Pre-Alpha
+              <i aria-hidden="true" class="icon" data-feather="alert-triangle" style="border-radius: 5px"></i>
+              Alpha
             </a>
-            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+            <span class="visually-hidden">This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.</span>
           </abbr>
         </span>
 
@@ -452,10 +452,10 @@ and fold changes between the two groups were generated with <a href="https://gen
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>Bifidobacterium_animalis        Turicimonas_muris         Dorea_sp_CAG_317
-                   1.817                    0.608                    2.162
-        Actinomyces_oris
-                   1.336 </code></pre>
+<pre class="output" tabindex="0"><code>   Bacteroides_xylanisolvens      Gordonibacter_pamelaeae
+                      -0.813                        0.093
+   Blautia_hydrogenotrophica Faecalibacterium_prausnitzii
+                      -0.746                       -4.040 </code></pre>
 </div>
 <p>The input is a vector of species names and log fold changes. Perfect
 for TaxSEA.</p>
@@ -557,8 +557,13 @@ that the set cannot be significant.</p>
 <span><span class="va">allmeta_data</span> <span class="op">=</span> <span class="va">sampleMetadata</span></span>
 <span></span>
 <span><span class="co"># HallAB_2017 dataset</span></span>
-<span><span class="va">HallAB_2017_cmd_object</span> <span class="op">=</span> <span class="fu">curatedMetagenomicData</span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"2021-10-14.HallAB_2017.relative_abundance"</span>,counts <span class="op">=</span> <span class="cn">TRUE</span>,dryrun <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="va">HallAB_2017_counts.df</span> <span class="op">=</span> <span class="va">HallAB_2017_cmd_object</span></span>
+<span><span class="va">HallAB_2017_cmd_object</span> <span class="op">=</span> <span class="fu">curatedMetagenomicData</span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"2021-10-14.HallAB_2017.relative_abundance"</span>,counts <span class="op">=</span> <span class="cn">TRUE</span>,dryrun <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">HallAB_2017_counts.df</span> <span class="op">=</span> <span class="va">HallAB_2017_cmd_object</span></span>
 <span><span class="va">HallAB_2017_counts.df</span> <span class="op">=</span> <span class="op">(</span><span class="va">HallAB_2017_counts.df</span><span class="op">$</span><span class="va">`2021-10-14.HallAB_2017.relative_abundance`</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">HallAB_2017_counts.df</span> <span class="op">=</span> <span class="fu">assay</span><span class="op">(</span><span class="va">HallAB_2017_counts.df</span><span class="op">)</span></span>
@@ -591,7 +596,7 @@ that the set cannot be significant.</p>
 [241] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 [256] TRUE TRUE TRUE TRUE</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -626,7 +631,7 @@ The filtered data has  32  samples and  299  features will be tested!</code></pr
 Fit linear models ...
 Completed.</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -688,7 +693,7 @@ Completed.</code></pre>
 <span></span>
 <span><span class="fu">ggarrange</span><span class="op">(</span><span class="va">volcano_plot_all</span>,<span class="va">volcano_fa</span>,<span class="va">scfa_volcano</span>,ncol <span class="op">=</span> <span class="fl">3</span>,nrow<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/02-taxsea-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb17">
+<figure><img src="fig/02-taxsea-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -702,35 +707,17 @@ Completed.</code></pre>
 <span>              Group <span class="op">=</span> <span class="st">"Skin-associated"</span><span class="op">)</span>,</span>
 <span>   <span class="fu">data.frame</span><span class="op">(</span>log2FoldChange <span class="op">=</span> <span class="va">HallAB_2017_DA</span><span class="op">$</span><span class="va">log2FoldChange</span><span class="op">[</span><span class="va">HallAB_2017_DA</span><span class="op">$</span><span class="va">Faculatative_anerobes</span><span class="op">]</span>,</span>
 <span>              Group <span class="op">=</span> <span class="st">"Facultative anaerobes"</span><span class="op">)</span></span>
-<span> <span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in data.frame(log2FoldChange = HallAB_2017_DA$log2FoldChange[HallAB_2017_DA$Faculatative_anerobes], : arguments imply differing number of rows: 0, 1</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb19">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span> <span class="va">ridge_dat</span><span class="op">$</span><span class="va">Group</span> <span class="op">&lt;-</span> <span class="fu">factor</span><span class="op">(</span></span>
+<span> <span class="op">)</span></span>
+<span> </span>
+<span> <span class="va">ridge_dat</span><span class="op">$</span><span class="va">Group</span> <span class="op">&lt;-</span> <span class="fu">factor</span><span class="op">(</span></span>
 <span>   <span class="va">ridge_dat</span><span class="op">$</span><span class="va">Group</span>,</span>
 <span>   levels <span class="op">=</span> <span class="fu">rev</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"All taxa"</span>,</span>
 <span>                  <span class="st">"SCFA producers"</span>,</span>
 <span>                  <span class="st">"Skin-associated"</span>,</span>
 <span>                  <span class="st">"Facultative anaerobes"</span><span class="op">)</span><span class="op">)</span></span>
-<span> <span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'ridge_dat' not found</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb21">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">ridge_dat</span>,</span>
+<span> <span class="op">)</span></span>
+<span> </span>
+<span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">ridge_dat</span>,</span>
 <span>        <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">log2FoldChange</span>,</span>
 <span>            y <span class="op">=</span> <span class="va">Group</span>,</span>
 <span>            fill <span class="op">=</span> <span class="va">Group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -748,12 +735,7 @@ Completed.</code></pre>
 <span>   <span class="fu">ylab</span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span></span>
 <span>   <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"log2FC distributions for functional/ecological groups"</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error: object 'ridge_dat' not found</code></pre>
-</div>
-</section><section><h2 class="section-heading" id="custom-databases">Custom databases<a class="anchor" aria-label="anchor" href="#custom-databases"></a></h2>
+<figure><img src="fig/02-taxsea-rendered-unnamed-chunk-10-2.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="custom-databases">Custom databases<a class="anchor" aria-label="anchor" href="#custom-databases"></a></h2>
 <hr class="half-width"><p>If you want to run TaxSEA with your own database, use the
 <code>custom_db</code> argument. It should be a named list where:</p>
 <ul><li>each <strong>name</strong> is the label for a set, and</li>
@@ -797,7 +779,7 @@ left_join(taxon_lineages) %\>%
 left_join(custom_taxsea_results, by = c("taxonSetName" = "order")) %\>%
 
 drop_na(PValue)
- --><div class="codewrapper sourceCode" id="cb23">
+ --><div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -823,9 +805,13 @@ drop_na(PValue)
 <span>  pattern <span class="op">=</span> <span class="st">"ChngKR_2016.relative_abundance"</span>,</span>
 <span>  counts <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  dryrun <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Convert the extracted data to a count matrix</span></span>
+<span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Convert the extracted data to a count matrix</span></span>
 <span><span class="va">counts_data</span> <span class="op">&lt;-</span> <span class="fu">assay</span><span class="op">(</span><span class="va">cmd_data</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="co"># Subset to relevant samples</span></span>
 <span><span class="va">counts_data</span> <span class="op">&lt;-</span> <span class="va">counts_data</span><span class="op">[</span>, <span class="fu">rownames</span><span class="op">(</span><span class="va">metadata</span><span class="op">)</span><span class="op">]</span>  </span>
@@ -869,7 +855,7 @@ Pseudo-count approach is used.
 Fit linear models ...
 Completed.</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -892,10 +878,10 @@ Completed.</code></pre>
 <span><span class="fu">datatable</span><span class="op">(</span><span class="va">custom_taxsea_results</span><span class="op">)</span></span></code></pre>
 </div>
 <!--html_preserve-->
-<div id="htmlwidget-314defd8c749f7e17aa6" class="datatables html-widget html-fill-item" style="width:100%;height:auto;">
+<div id="htmlwidget-d68749de39512fe0b2c9" class="datatables html-widget html-fill-item" style="width:100%;height:auto;">
 
 </div>
-<script type="application/json" data-for="htmlwidget-314defd8c749f7e17aa6">{"x":{"filter":"none","vertical":false,"data":[["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],[1.119543769360394,-0.3879824092840792,1.338184015953424,1.849569432709268,-0.6707002477465542,-1.411169277303825,0.6960170764832077,1.340148508123332,0.1321514169238954,-0.1249914266662796,0.6086800199417697,-0.3124833654946449,0.4187268857840517],[0.0118725802386351,0.01329696522186961,0.0260205602170516,0.04396131142078909,0.1293477081093432,0.1390625964594388,0.1580926108976503,0.1721450259759667,0.4374982180848367,0.4427549556643566,0.6065049269116362,0.8719580780499743,0.9521634436974848],[0.6171428571428571,0.2673170731707317,0.3218181818181818,0.3453571428571429,0.2542857142857143,0.4495238095238095,0.3,0.3428571428571429,0.3657142857142858,0.2285714285714285,0.2742857142857143,0.2457142857142857,0.1828571428571429],[0.08643027394215246,0.08643027394215246,0.1127557609405569,0.1428742621175645,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.5755814423636636,0.5755814423636636,0.7167785499864792,0.9446212512208054,0.9521634436974848]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxonSetName<\/th>\n      <th>median_rank_of_set_members<\/th>\n      <th>PValue<\/th>\n      <th>Test_statistic<\/th>\n      <th>FDR<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxonSetName","targets":1},{"name":"median_rank_of_set_members","targets":2},{"name":"PValue","targets":3},{"name":"Test_statistic","targets":4},{"name":"FDR","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><!--/html_preserve--><div class="codewrapper sourceCode" id="cb26">
+<script type="application/json" data-for="htmlwidget-d68749de39512fe0b2c9">{"x":{"filter":"none","vertical":false,"data":[["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],[1.119543769360394,-0.3879824092840792,1.338184015953424,1.849569432709268,-0.6707002477465542,-1.411169277303825,0.6960170764832077,1.340148508123332,0.1321514169238954,-0.1249914266662796,0.6086800199417697,-0.3124833654946449,0.4187268857840517],[0.0118725802386351,0.01329696522186961,0.0260205602170516,0.04396131142078909,0.1293477081093432,0.1390625964594388,0.1580926108976503,0.1721450259759667,0.4374982180848367,0.4427549556643566,0.6065049269116362,0.8719580780499743,0.9521634436974848],[0.6171428571428571,0.2673170731707317,0.3218181818181818,0.3453571428571429,0.2542857142857143,0.4495238095238095,0.3,0.3428571428571429,0.3657142857142858,0.2285714285714285,0.2742857142857143,0.2457142857142857,0.1828571428571429],[0.08643027394215246,0.08643027394215246,0.1127557609405569,0.1428742621175645,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.5755814423636636,0.5755814423636636,0.7167785499864792,0.9446212512208054,0.9521634436974848]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxonSetName<\/th>\n      <th>median_rank_of_set_members<\/th>\n      <th>PValue<\/th>\n      <th>Test_statistic<\/th>\n      <th>FDR<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxonSetName","targets":1},{"name":"median_rank_of_set_members","targets":2},{"name":"PValue","targets":3},{"name":"Test_statistic","targets":4},{"name":"FDR","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><!--/html_preserve--><div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
