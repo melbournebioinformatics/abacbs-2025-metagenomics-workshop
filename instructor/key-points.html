@@ -245,7 +245,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="01-introduction.html">1. Introduction to metagenomics</a>
+        <a href="01-metagenomic-workflows.html">1. Metagenomic analysis with nf-core workflows</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -257,7 +257,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="02-mags-and-profiling.html">2. Metagenomics data processing</a>
+        <a href="02-taxsea.html">2. Taxon-set enrichment analysis with TaxSEA</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -269,7 +269,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03-taxsea.html">3. Taxon-set enrichment analysis with TaxSEA</a>
+        <a href="03-multi-omics.html">3. Multi-omics integration with DIABLO</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -333,39 +333,35 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="01-introduction"><h2 class="section-heading"><a href="01-introduction.html">Introduction to metagenomics</a></h2>
+<section id="01-metagenomic-workflows"><h2 class="section-heading"><a href="01-metagenomic-workflows.html">Metagenomic analysis with nf-core workflows</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
-</ul></section><section id="02-mags-and-profiling"><h2 class="section-heading"><a href="02-mags-and-profiling.html">Metagenomics data processing</a></h2>
+<li>Placeholder</li>
+<li>Placeholder</li>
+<li>Placeholder</li>
+</ul></section><section id="02-taxsea"><h2 class="section-heading"><a href="02-taxsea.html">Taxon-set enrichment analysis with TaxSEA</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
-</ul></section><section id="03-taxsea"><h2 class="section-heading"><a href="03-taxsea.html">Taxon-set enrichment analysis with TaxSEA</a></h2>
+<li>TaxSEA performs taxon-set enrichment analysis on differential
+abundance results, similar to GSEA.</li>
+<li>Inputs must be species or genus names with corresponding ranks
+(e.g., log2 fold changes).</li>
+<li>TaxSEA tests whether members of a taxon set are skewed toward one
+end of the ranked distribution.</li>
+<li>Enrichment results help reveal functional or ecological patterns
+that may not be visible at the single-taxon level.</li>
+</ul></section><section id="03-multi-omics"><h2 class="section-heading"><a href="03-multi-omics.html">Multi-omics integration with DIABLO</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>DIABLO integrates multiple omics datasets by identifying correlated
+and discriminative features across blocks.</li>
+<li>Proper filtering and transformation of each omics dataset are
+essential for stable multi-omics models.</li>
+<li>Tuning (components and keepX) guides the selection of the most
+predictive and biologically relevant features.</li>
+<li>DIABLO visualisations (sample plots, arrow plots, circos, CIM)
+reveal relationships across omics and help interpret multi-omics
+signatures.</li>
 </ul></section>
 </div>
     </main>
