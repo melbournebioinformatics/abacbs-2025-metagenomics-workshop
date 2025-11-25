@@ -24,7 +24,7 @@ keywords: 'metagenomics, microbiome, bioinformatics, multiomics, metabolomics, e
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha'
+life_cycle: 'alpha'
 
 # License of the lesson
 license: 'CC-BY 4.0'
@@ -62,9 +62,9 @@ contact: 'vinicius.salazar [ at ] unimelb.edu.au'
 
 # Order of episodes in your lesson
 episodes: 
-- 01-introduction.md
-- 02-mags-and-profiling.md
-- 03-taxsea.Rmd
+- 01-metagenomic-workflows.md
+- 02-taxsea.Rmd
+- 03-multi-omics.Rmd
 
 # Information for Learners
 learners: 
