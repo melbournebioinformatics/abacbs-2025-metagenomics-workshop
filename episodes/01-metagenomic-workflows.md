@@ -1,5 +1,5 @@
 ---
-title: "Metagenomic analysis with nf-core workflows"
+title: "Introduction to metagenomics"
 author: Vini Salazar
 teaching: 20
 exercises: 0
