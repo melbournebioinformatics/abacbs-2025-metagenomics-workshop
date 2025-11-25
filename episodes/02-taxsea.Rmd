@@ -31,7 +31,7 @@ TaxSEA is a bioconductor package that helps microbiome researchers test for enri
 TaxSEA takes as input a vector of genus or species names and a rank (e.g. log2 fold changes or Spearman's rho) and uses a Kolmogorov-Smirnov test to identify if a particular group of species or genera (i.e. a set of taxa such as butyrate producers) are skewed to one end of the distribution (i.e. enriched).
 
 TaxSEA is based on the concept of Gene Set Enrichment Analysis (GSEA).
-For an overview, check out the link [here](https://www.metwarebio.com/gsea-enrichment-analysis-guide/).
+For an overview, check out the link here:[https://www.metwarebio.com/gsea-enrichment-analysis-guide/](https://www.metwarebio.com/gsea-enrichment-analysis-guide/).
 
 Note: Although TaxSEA can, in principle, be applied to microbiome data from any source, the databases utilised largely cover human-associated microbiomes, particularly the human gut microbiome.
 As such TaxSEA will likely perform best on human gut microbiome data.

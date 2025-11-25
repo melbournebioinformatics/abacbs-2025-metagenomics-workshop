@@ -62,7 +62,7 @@ contact: 'vinicius.salazar [ at ] unimelb.edu.au'
 
 # Order of episodes in your lesson
 episodes: 
-- 01-metagenomics-workflows.Rmd
+- 01-metagenomic-workflows.md
 - 02-taxsea.Rmd
 - 03-multi-omics.Rmd
 
