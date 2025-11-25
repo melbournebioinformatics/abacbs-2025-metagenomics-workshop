@@ -24,7 +24,7 @@ keywords: 'metagenomics, microbiome, bioinformatics, multiomics, metabolomics, e
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha'
+life_cycle: 'alpha'
 
 # License of the lesson
 license: 'CC-BY 4.0'
