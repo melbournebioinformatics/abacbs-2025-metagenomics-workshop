@@ -24,6 +24,8 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+**Author:** Geraldine Kong
+
 This workshop introduces multi-omics integration using DIABLO from mixOmics R package, adapted from mixOmics' tutorial <https://mixomics.org/mixdiablo/diablo-tcga-case-study/>.
 
 We will use the dataset from Franzosa et al. (2019) to integrate microbiome species profiles from shotgun metagenomics with metabolomics data. The goal is to identify a multi-omics signature that discriminates healthy controls from patients with *Clostridium difficile* (CD) by finding correlated and predictive features across the omics. You will learn how to tune the model, explore the relationships between features, and interpret sample groupings.

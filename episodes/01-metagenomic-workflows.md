@@ -1,5 +1,6 @@
 ---
 title: "Metagenomic analysis with nf-core workflows"
+author: Vini Salazar
 teaching: 20
 exercises: 0
 ---
