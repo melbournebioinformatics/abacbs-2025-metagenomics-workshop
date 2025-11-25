@@ -9,10 +9,11 @@ This is a workshop developed in collaboration between researchers of Victoria an
 Built with the Melbourne Bioinformatics fork of [The Carpentries Workbench](https://carpentries.github.io/workbench/).
 
 **Contributors:**
-- Calum Walsh, Peter Doherty Institute
-- Don Teng, Metabolomics South Australia
-- Feargal Ryan, Flinders University
-- Geraldine Kong, Peter Doherty Institute
-- Vini Salazar, Melbourne Bioinformatics
+
+- Calum Walsh, Peter Doherty Institute 
+- Don Teng, Metabolomics South Australia 
+- Feargal Ryan, Flinders University 
+- Geraldine Kong, Peter Doherty Institute 
+- Vini Salazar, Melbourne Bioinformatics 
 
 
