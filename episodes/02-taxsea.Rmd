@@ -8,20 +8,24 @@ date: "2025-11-28"
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- Placeholder
-- Placeholder
+- How can we test whether groups of related taxa (taxon sets) show coordinated shifts between conditions?
+- What input does TaxSEA need, and how should taxonomic IDs be formatted?
+- How does TaxSEA extend differential abundance results using enrichment analysis?
+- How can we interpret enriched taxon sets to understand functional, ecological, or disease-associated patterns?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Placeholder
-- Placeholder
+- Prepare species- or genus-level differential abundance results for use with TaxSEA.
+- Run TaxSEA to test for enrichment across predefined or custom taxon sets.
+- Understand the structure of TaxSEA output, including P values, effect direction, and FDR.
+- Interpret enrichment results in the context of microbiome function, ecology, and host associations.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-TaxSEA is a bioconductor package that helps microbiome researchers test for enrichment in known microbial signatures, including:
+TaxSEA is a Bioconductor package that helps microbiome researchers test for enrichment in known microbial signatures, including:
 
 -   Metabolite producers
 -   Disease associations
@@ -318,7 +322,7 @@ This is the same format as the default TaxSEA database.
 Note: using the *custom_db* flag disables the automatic ID conversion and NCBI API lookup.
 However this is available via other functions.
 
-## Perform enrichment analysis using TaxSEA with custom databases:
+## Perform enrichment analysis using TaxSEA with custom databases
 
 In addition to taxon sets defined by function or phenotype, users can define custom sets based on taxonomy.
 Current methods to test differential abundance at higher taxonomic levels (e.g., genus or family) involve aggregating counts, but with this approach opposing shifts in individual species may cancel each other out, obscuring meaningful biological patterns.
@@ -337,6 +341,7 @@ The code block below does the following:
 -   Performs enrichment analysis using TaxSEA
 -   Plots results
 
+<!-- 
 data.frame(Name = names(log2_fold_changes),
 
 Log2FC = log2_fold_changes) %\>%
@@ -346,7 +351,8 @@ left_join(taxon_lineages) %\>%
 left_join(custom_taxsea_results, by = c("taxonSetName" = "order")) %\>%
 
 drop_na(PValue)
-
+ -->
+ 
 ```{r, warning=FALSE, message=FALSE}
 # Load required libraries
 library(TaxSEA)
@@ -442,8 +448,9 @@ data.frame(Name = names(log2_fold_changes),
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Placeholder
-- Placeholder
-- Placeholder
+- TaxSEA performs taxon-set enrichment analysis on differential abundance results, similar to GSEA.
+- Inputs must be species or genus names with corresponding ranks (e.g., log2 fold changes).
+- TaxSEA tests whether members of a taxon set are skewed toward one end of the ranked distribution.
+- Enrichment results help reveal functional or ecological patterns that may not be visible at the single-taxon level.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::

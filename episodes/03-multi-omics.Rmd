@@ -8,16 +8,19 @@ exercises: 15
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- Placeholder
-- Placeholder
-
+- How can we integrate microbiome and metabolomics data to identify shared biological signals?
+- What does DIABLO do, and how is it different from single-omics analyses?
+- How do we tune a multi-omics model and choose the number of components and selected features?
+- How do we interpret DIABLO outputs to understand discriminative multi-omics signatures?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Placeholder
-- Placeholder
+- Preprocess microbiome and metabolomics data for multi-omics integration (filtering, transformation, normalisation).
+- Perform unsupervised integration (sPLS) to explore cross-omics correlations.
+- Train, tune, and validate a DIABLO model for classification.
+- Interpret sample plots, feature correlations, loadings, and multi-omics signatures produced by DIABLO.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -594,8 +597,9 @@ get.BER(confusion.mat)
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Placeholder
-- Placeholder
-- Placeholder
+- DIABLO integrates multiple omics datasets by identifying correlated and discriminative features across blocks.
+- Proper filtering and transformation of each omics dataset are essential for stable multi-omics models.
+- Tuning (components and keepX) guides the selection of the most predictive and biologically relevant features.
+- DIABLO visualisations (sample plots, arrow plots, circos, CIM) reveal relationships across omics and help interpret multi-omics signatures.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
