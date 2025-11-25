@@ -24,6 +24,8 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+**Author:** Geraldine Kong
+
 This workshop introduces multi-omics integration using DIABLO from mixOmics R package, adapted from mixOmics' tutorial <https://mixomics.org/mixdiablo/diablo-tcga-case-study/>.
 
 We will use the dataset from Franzosa et al. (2019) to integrate microbiome species profiles from shotgun metagenomics with metabolomics data. The goal is to identify a multi-omics signature that discriminates healthy controls from patients with *Clostridium difficile* (CD) by finding correlated and predictive features across the omics. You will learn how to tune the model, explore the relationships between features, and interpret sample groupings.
@@ -641,10 +643,10 @@ list.keepX
 
 ``` output
 $microb
-[1] 6 5
+[1] 20 12
 
 $metab
-[1] 30 20
+[1]  6 16
 ```
 
 ### Final DIABLO model
@@ -791,10 +793,10 @@ perf.diablo$MajorityVote.error.rate
 ``` output
 $centroids.dist
                 comp1     comp2
-CD          0.2750000 0.2416667
-Control     0.1674419 0.1651163
-Overall.ER  0.2347826 0.2130435
-Overall.BER 0.2212209 0.2033915
+CD          0.2250000 0.2208333
+Control     0.1465116 0.1744186
+Overall.ER  0.1956522 0.2034783
+Overall.BER 0.1857558 0.1976260
 ```
 
 ``` r
@@ -803,10 +805,10 @@ perf.diablo$WeightedPredict.error.rate
 
 ``` output
                 comp1     comp2
-CD          0.1027778 0.1583333
-Control     0.1581395 0.1511628
-Overall.ER  0.1234783 0.1556522
-Overall.BER 0.1304587 0.1547481
+CD          0.1083333 0.1555556
+Control     0.1488372 0.1465116
+Overall.ER  0.1234783 0.1521739
+Overall.BER 0.1285853 0.1510336
 ```
 
 From the results above, it can be seen that the error rate is quite low across the board, suggesting good classification performance. Let's try the model on the test set to see how good it is at classifying novel samples.
@@ -842,7 +844,7 @@ confusion.mat
 
 ``` output
         predicted.as.CD predicted.as.Control
-CD                   13                    3
+CD                   14                    2
 Control               2                   11
 ```
 
@@ -854,7 +856,7 @@ get.BER(confusion.mat)
 ```
 
 ``` output
-[1] 0.1706731
+[1] 0.1394231
 ```
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
