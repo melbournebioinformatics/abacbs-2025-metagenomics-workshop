@@ -277,7 +277,9 @@ dim(metab_log)
 
 ## Initial analysis: Unsupervised integration using PLS
 
-!!*Before training DIABLO, it is important to explore the datasets separately (e.g., PCA, sPLS-DA) and perform unsupervised integration (e.g., rCCA or sPLS) to understand correlation structure.*
+::::::::::::::::::::::::::::::::::::: callout
+Before training DIABLO, it is important to explore the datasets separately (e.g., PCA, sPLS-DA) and perform unsupervised integration (e.g., rCCA or sPLS) to understand correlation structure.
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 Here we use sPLS and request 25 variables from each dataset (arbitrary) that maximise covariance between microbiome and metabolome.
 
