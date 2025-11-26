@@ -187,7 +187,7 @@ Next, load the Franzosa2019 dataset and inspect the R objects. The data has 144 
 -   metabolome: 144 rows (samples) with 367 columns (metabolites)
 
 ```{r load_data}
-data_int <- readRDS('Franzosa_IBD_2019.RDS')
+data_int <- readRDS('data/Franzosa_IBD_2019.RDS')
 
 # Inspect
 lapply(data_int, dim)
