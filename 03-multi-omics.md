@@ -387,7 +387,9 @@ dim(metab_log)
 
 ## Initial analysis: Unsupervised integration using PLS
 
-*Before training DIABLO, it is important to explore the datasets separately (e.g., PCA, sPLS-DA) and perform unsupervised integration (e.g., rCCA or sPLS) to understand correlation structure.*
+::::::::::::::::::::::::::::::::::::: callout
+Before training DIABLO, it is important to explore the datasets separately (e.g., PCA, sPLS-DA) and perform unsupervised integration (e.g., rCCA or sPLS) to understand correlation structure.
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 Here we use sPLS and request 25 variables from each dataset (arbitrary) that maximise covariance between microbiome and metabolome.
 
@@ -553,18 +555,19 @@ plot(perf.diablo) # plot output of tuning
 
 <img src="fig/03-multi-omics-rendered-plot_tuning_comp-1.png" style="display: block; margin: auto;" />
 
-*BER is the average misclassification rate across all classes. It is a metric that gives equal weight to each class, regardless of how many samples are in each class. Perfect prediction will give a BER of 0, whereas a random chance prediction will have BER of 0.5 (for 2 classes (or worse for more classes). Higher values indicates worse performance, whereas lower values indicates better performance.*
+*Centroids distance: First, for each of the classes, the centroid is calculated using all the training samples associated with that class. The Euclidean distance of the test sample to the centroid of training samples are calculated. The class (outcome) will be assigned to that sample based on whichever class centroid is closest to that sample. Classifications made using this metric are less susceptible to outliers within the training set. This metric is best used when the classes cluster moderately well - which can be determined by plotting the samples via the `plotIndiv()` function.*
+
+*BER: Average misclassification rate across all classes. It is a metric that gives equal weight to each class, regardless of how many samples are in each class. Perfect prediction will give a BER of 0, whereas a random chance prediction will have BER of 0.5 (for 2 classes (or worse for more classes). Higher values indicates worse performance, whereas lower values indicates better performance.*
 
 In DIABLO tuning, adding components is stopped when additional components do not reduce BER in a consistent and meaningful way. Hence, in this case, the tuning results suggest that 1 component is enough to discriminate between the groups. This can occur when a dataset has strong discrminative signals.
 
 *Note: For visualisations (e.g, sample plots), a minimum of 2 components is required. In such cases, set `ncomp = 2` in the final DIABLO model, but interpret the biology primarily using features from Component 1.*
 
+*WeightedVote.error.rate: Prediction is based on a weighted vote across components, where early components get more weight (because they usually capture more discriminative signal). This tends to work well when signal strength is concentrated in the first component.*
+
 
 ``` r
-# set the optimal ncomp value
-ncomp = perf.diablo$choice.ncomp$WeightedVote["Overall.BER", "centroids.dist"] 
-# show the optimal choice for ncomp for each dist metric
-perf.diablo$choice.ncomp$WeightedVote 
+perf.diablo$choice.ncomp$WeightedVote
 ```
 
 ``` output
@@ -573,12 +576,10 @@ Overall.ER         1              2                3
 Overall.BER        1              2                1
 ```
 
-*WeightedVote.error.rate: Prediction is based on a weighted vote across components, where early components get more weight (because they usually capture more discriminative signal). This tends to work well when signal strength is concentrated in the first component.*
-
 
 ``` r
 # Set ncomp = 2 for visualisation
-ncomp = 2
+ncomp = 2 # else perf.diablo$choice.ncomp$WeightedVote["Overall.BER", "centroids.dist"] 
 ```
 
 #### Number of features
@@ -621,19 +622,7 @@ This results in 169 models being fitted for each component and each nrepeat, thi
 You can look into the 'BPPARAM' argument to speed up computation time.
 ```
 
-The final number of optimal features selected are:
-
-For microbiome data:
-
--   Component 1: 12 features
-
--   Component 2: 5 features
-
-For metabolomics data:
-
--   Component 1: 25 features
-
--   Component 2: 16 features
+The final number of optimal features selected are as below, first and second number for each block corresponding to Component 1 and 2 respectively:
 
 
 ``` r
@@ -643,10 +632,10 @@ list.keepX
 
 ``` output
 $microb
-[1] 20 12
+[1] 25  6
 
 $metab
-[1]  6 16
+[1] 5 5
 ```
 
 ### Final DIABLO model
@@ -760,7 +749,7 @@ The clustered image map (CIM) below is a heatmap of the values of selected multi
 
 
 ``` r
-# *Can run in "figure margins too large" error
+# *Can run into "figure margins too large" error
 cimDiablo(final.diablo.model,margins = c(8, 8))
 ```
 
@@ -773,11 +762,15 @@ trimming values to [-3, 3] range for cim visualisation. See 'trim' arg in ?cimDi
 
 ### Evaluate model performance
 
-To assess the performance of the model, we use the `perf()` function to perform 10-fold cross-validation repeated 10 times. This is an estimation of how well the model generalises within the training cohort.
+To assess the performance of the model, we use the `perf()` function to perform 10-fold cross-validation repeated 10 times. In each cross-validation round, for each block in the DIABLO model, a predicted class is obtained for every test sample. These block-specific predictions are then combined to produce a single final prediction per sample, which is used to compute the different error-rate metrics.
 
-*MajorityVote.error.rate: each component votes equally*
+***MajorityVote**: Each block contributes one class vote. The predicted class for a sample is simply the class receiving the highest number of votes across blocks.*
 
-*WeightedPredict.error.rate: Prediction is based on a weighted vote across components, where early components get more weight (because they usually capture more discriminative signal). This tends to work well when signal strength is concentrated in the first component.*
+*Example: with three omics blocks and classes A and B, if the block-level predictions for a sample are A, A, B, the MajorityVote result for that sample is A.*
+
+***WeightedVote**: Each block casts a class vote, but votes are multiplied by block-specific weights that reflect the correlation between the block’s latent component and the outcome. The class whose votes sum to the highest weighted total becomes the predicted class.*
+
+*Example: Using the previous block-level predictions (A, A, B) and block weights 0.3, 0.2, and 0.7, the weighted votes for class A total 0.3 + 0.2 = 0.5, and the weighted vote for class B is 0.7. Therefore, the WeightedVote result for that sample is B.*
 
 
 ``` r
@@ -793,10 +786,10 @@ perf.diablo$MajorityVote.error.rate
 ``` output
 $centroids.dist
                 comp1     comp2
-CD          0.2250000 0.2208333
-Control     0.1465116 0.1744186
-Overall.ER  0.1956522 0.2034783
-Overall.BER 0.1857558 0.1976260
+CD          0.2361111 0.2333333
+Control     0.1348837 0.1558140
+Overall.ER  0.1982609 0.2043478
+Overall.BER 0.1854974 0.1945736
 ```
 
 ``` r
@@ -805,10 +798,10 @@ perf.diablo$WeightedPredict.error.rate
 
 ``` output
                 comp1     comp2
-CD          0.1083333 0.1555556
-Control     0.1488372 0.1465116
-Overall.ER  0.1234783 0.1521739
-Overall.BER 0.1285853 0.1510336
+CD          0.1152778 0.1527778
+Control     0.1093023 0.1325581
+Overall.ER  0.1130435 0.1452174
+Overall.BER 0.1122901 0.1426680
 ```
 
 From the results above, it can be seen that the error rate is quite low across the board, suggesting good classification performance. Let's try the model on the test set to see how good it is at classifying novel samples.
