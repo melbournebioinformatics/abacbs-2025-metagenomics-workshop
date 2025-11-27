@@ -555,15 +555,17 @@ plot(perf.diablo) # plot output of tuning
 
 <img src="fig/03-multi-omics-rendered-plot_tuning_comp-1.png" style="display: block; margin: auto;" />
 
-*Centroids distance: First, for each of the classes, the centroid is calculated using all the training samples associated with that class. The Euclidean distance of the test sample to the centroid of training samples are calculated. The class (outcome) will be assigned to that sample based on whichever class centroid is closest to that sample. Classifications made using this metric are less susceptible to outliers within the training set. This metric is best used when the classes cluster moderately well - which can be determined by plotting the samples via the `plotIndiv()` function.*
+**Centroids distance:** First, for each of the classes, the centroid is calculated using all the training samples associated with that class. The Euclidean distance of the test sample to the centroid of training samples are calculated. The class (outcome) will be assigned to that sample based on whichever class centroid is closest to that sample. Classifications made using this metric are less susceptible to outliers within the training set. This metric is best used when the classes cluster moderately well - which can be determined by plotting the samples via the `plotIndiv()` function.
 
-*BER: Average misclassification rate across all classes. It is a metric that gives equal weight to each class, regardless of how many samples are in each class. Perfect prediction will give a BER of 0, whereas a random chance prediction will have BER of 0.5 (for 2 classes (or worse for more classes). Higher values indicates worse performance, whereas lower values indicates better performance.*
+**BER:** Average misclassification rate across all classes. It is a metric that gives equal weight to each class, regardless of how many samples are in each class. Perfect prediction will give a BER of 0, whereas a random chance prediction will have BER of 0.5 (for 2 classes (or worse for more classes). Higher values indicates worse performance, whereas lower values indicates better performance.
 
 In DIABLO tuning, adding components is stopped when additional components do not reduce BER in a consistent and meaningful way. Hence, in this case, the tuning results suggest that 1 component is enough to discriminate between the groups. This can occur when a dataset has strong discrminative signals.
 
-*Note: For visualisations (e.g, sample plots), a minimum of 2 components is required. In such cases, set `ncomp = 2` in the final DIABLO model, but interpret the biology primarily using features from Component 1.*
+**WeightedVote.error.rate:** Prediction is based on a weighted vote across components, where early components get more weight (because they usually capture more discriminative signal). This tends to work well when signal strength is concentrated in the first component.
 
-*WeightedVote.error.rate: Prediction is based on a weighted vote across components, where early components get more weight (because they usually capture more discriminative signal). This tends to work well when signal strength is concentrated in the first component.*
+::::::::::::::::::::::::::::::::::::: callout
+Note: For visualisations (e.g, sample plots), a minimum of 2 components is required. In such cases, set `ncomp = 2` in the final DIABLO model, but interpret the biology primarily using features from Component 1.
+:::::::::::::::::::::::::::::::::::::::::::::
 
 
 ``` r
@@ -632,10 +634,10 @@ list.keepX
 
 ``` output
 $microb
-[1] 25  6
+[1]  5 10
 
 $metab
-[1] 5 5
+[1] 25 30
 ```
 
 ### Final DIABLO model
@@ -786,10 +788,10 @@ perf.diablo$MajorityVote.error.rate
 ``` output
 $centroids.dist
                 comp1     comp2
-CD          0.2361111 0.2333333
-Control     0.1348837 0.1558140
-Overall.ER  0.1982609 0.2043478
-Overall.BER 0.1854974 0.1945736
+CD          0.2819444 0.2402778
+Control     0.1674419 0.1558140
+Overall.ER  0.2391304 0.2086957
+Overall.BER 0.2246932 0.1980459
 ```
 
 ``` r
@@ -798,10 +800,10 @@ perf.diablo$WeightedPredict.error.rate
 
 ``` output
                 comp1     comp2
-CD          0.1152778 0.1527778
-Control     0.1093023 0.1325581
-Overall.ER  0.1130435 0.1452174
-Overall.BER 0.1122901 0.1426680
+CD          0.1013889 0.1388889
+Control     0.1581395 0.1441860
+Overall.ER  0.1226087 0.1408696
+Overall.BER 0.1297642 0.1415375
 ```
 
 From the results above, it can be seen that the error rate is quite low across the board, suggesting good classification performance. Let's try the model on the test set to see how good it is at classifying novel samples.
