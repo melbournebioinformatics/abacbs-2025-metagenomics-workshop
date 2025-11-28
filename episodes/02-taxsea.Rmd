@@ -26,6 +26,8 @@ date: "2025-11-28"
 
 **Authors:** Calum J. Walsh & Feargal J. Ryan
 
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT4YlHL5BFPJP_w6QhARiD1cMB__5qpGwPGMp0NSnl-7DEW5NlJPw12ejV9atwF4g/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="640" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
 TaxSEA is a Bioconductor package that helps microbiome researchers test for enrichment in known microbial signatures, including:
 
 -   Metabolite producers
