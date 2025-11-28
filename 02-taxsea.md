@@ -26,6 +26,8 @@ date: "2025-11-28"
 
 **Authors:** Calum J. Walsh & Feargal J. Ryan
 
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT4YlHL5BFPJP_w6QhARiD1cMB__5qpGwPGMp0NSnl-7DEW5NlJPw12ejV9atwF4g/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="640" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
 TaxSEA is a Bioconductor package that helps microbiome researchers test for enrichment in known microbial signatures, including:
 
 -   Metabolite producers
@@ -107,10 +109,10 @@ sample(TaxSEA_test_data, 4)
 ```
 
 ``` output
-     Bifidobacterium_bifidum Faecalibacterium_prausnitzii 
-                       3.146                       -4.040 
-           Eggerthella_lenta Butyricicoccus_pullicaecorum 
-                       1.335                        2.021 
+      Bacteroides_vulgatus Intestinibacter_bartlettii 
+                    -1.972                      2.416 
+        Eubacterium_hallii  Actinomyces_sp_HMSC035G02 
+                    -5.522                      1.573 
 ```
 
 The input is a vector of species names and log fold changes.
@@ -507,8 +509,8 @@ custom_taxsea_results <- custom_taxsea_results$custom_sets
 datatable(custom_taxsea_results)
 ```
 
-<!--html_preserve--><div class="datatables html-widget html-fill-item" id="htmlwidget-cccef5c8f0794023dc74" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-cccef5c8f0794023dc74">{"x":{"filter":"none","vertical":false,"data":[["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],[1.119543769360394,-0.3879824092840792,1.338184015953424,1.849569432709268,-0.6707002477465542,-1.411169277303825,0.6960170764832077,1.340148508123332,0.1321514169238954,-0.1249914266662796,0.6086800199417697,-0.3124833654946449,0.4187268857840517],[0.0118725802386351,0.01329696522186961,0.0260205602170516,0.04396131142078909,0.1293477081093432,0.1390625964594388,0.1580926108976503,0.1721450259759667,0.4374982180848367,0.4427549556643566,0.6065049269116362,0.8719580780499743,0.9521634436974848],[0.6171428571428571,0.2673170731707317,0.3218181818181818,0.3453571428571429,0.2542857142857143,0.4495238095238095,0.3,0.3428571428571429,0.3657142857142858,0.2285714285714285,0.2742857142857143,0.2457142857142857,0.1828571428571429],[0.08643027394215246,0.08643027394215246,0.1127557609405569,0.1428742621175645,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.5755814423636636,0.5755814423636636,0.7167785499864792,0.9446212512208054,0.9521634436974848]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxonSetName<\/th>\n      <th>median_rank_of_set_members<\/th>\n      <th>PValue<\/th>\n      <th>Test_statistic<\/th>\n      <th>FDR<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxonSetName","targets":1},{"name":"median_rank_of_set_members","targets":2},{"name":"PValue","targets":3},{"name":"Test_statistic","targets":4},{"name":"FDR","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div class="datatables html-widget html-fill-item" id="htmlwidget-a87ac8ac748236ce3af9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-a87ac8ac748236ce3af9">{"x":{"filter":"none","vertical":false,"data":[["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],["Pasteurellales","Corynebacteriales","Lactobacillales","Bacillales","Micrococcales","Rhodobacterales","Bacteroidales","Actinomycetales","Rhodospirillales","Pseudomonadales","Neisseriales","Propionibacteriales","Flavobacteriales"],[1.119543769360394,-0.3879824092840792,1.338184015953424,1.849569432709268,-0.6707002477465542,-1.411169277303825,0.6960170764832077,1.340148508123332,0.1321514169238954,-0.1249914266662796,0.6086800199417697,-0.3124833654946449,0.4187268857840517],[0.0118725802386351,0.01329696522186961,0.0260205602170516,0.04396131142078909,0.1293477081093432,0.1390625964594388,0.1580926108976503,0.1721450259759667,0.4374982180848367,0.4427549556643566,0.6065049269116362,0.8719580780499743,0.9521634436974848],[0.6171428571428571,0.2673170731707317,0.3218181818181818,0.3453571428571429,0.2542857142857143,0.4495238095238095,0.3,0.3428571428571429,0.3657142857142858,0.2285714285714285,0.2742857142857143,0.2457142857142857,0.1828571428571429],[0.08643027394215246,0.08643027394215246,0.1127557609405569,0.1428742621175645,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.2797356672109459,0.5755814423636636,0.5755814423636636,0.7167785499864792,0.9446212512208054,0.9521634436974848]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxonSetName<\/th>\n      <th>median_rank_of_set_members<\/th>\n      <th>PValue<\/th>\n      <th>Test_statistic<\/th>\n      <th>FDR<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxonSetName","targets":1},{"name":"median_rank_of_set_members","targets":2},{"name":"PValue","targets":3},{"name":"Test_statistic","targets":4},{"name":"FDR","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ``` r
 # plotting
