@@ -521,19 +521,19 @@ perf.diablo$error.rate
 ``` output
 $microb
        max.dist centroids.dist mahalanobis.dist
-comp1 0.1156522      0.1226087        0.1226087
-comp2 0.1234783      0.1200000        0.1243478
-comp3 0.1339130      0.1200000        0.1200000
-comp4 0.1478261      0.1234783        0.1478261
-comp5 0.1513043      0.1234783        0.1478261
+comp1 0.1173913      0.1208696        0.1208696
+comp2 0.1191304      0.1217391        0.1191304
+comp3 0.1339130      0.1182609        0.1260870
+comp4 0.1443478      0.1252174        0.1434783
+comp5 0.1434783      0.1252174        0.1434783
 
 $metab
        max.dist centroids.dist mahalanobis.dist
-comp1 0.1713043      0.1930435        0.1930435
-comp2 0.1486957      0.1547826        0.1539130
-comp3 0.1269565      0.1373913        0.1313043
-comp4 0.1321739      0.1469565        0.1304348
-comp5 0.1278261      0.1469565        0.1339130
+comp1 0.1704348      0.1921739        0.1921739
+comp2 0.1530435      0.1521739        0.1539130
+comp3 0.1278261      0.1452174        0.1295652
+comp4 0.1321739      0.1504348        0.1408696
+comp5 0.1286957      0.1469565        0.1295652
 ```
 
 The above shows the cross-validated error rates for the microbiome and metabolomics blocks across 1–5 components, evaluated under three different prediction distance metrics (max.dist, centroids.dist, mahalanobis.dist). Lower values indicate better classification performance.
@@ -574,8 +574,8 @@ perf.diablo$choice.ncomp$WeightedVote
 
 ``` output
             max.dist centroids.dist mahalanobis.dist
-Overall.ER         1              2                3
-Overall.BER        1              2                1
+Overall.ER         1              1                1
+Overall.BER        1              1                1
 ```
 
 
@@ -634,10 +634,10 @@ list.keepX
 
 ``` output
 $microb
-[1]  5 10
+[1] 9 5
 
 $metab
-[1] 25 30
+[1] 30 16
 ```
 
 ### Final DIABLO model
@@ -788,10 +788,10 @@ perf.diablo$MajorityVote.error.rate
 ``` output
 $centroids.dist
                 comp1     comp2
-CD          0.2819444 0.2402778
-Control     0.1674419 0.1558140
-Overall.ER  0.2391304 0.2086957
-Overall.BER 0.2246932 0.1980459
+CD          0.2750000 0.2263889
+Control     0.1627907 0.1511628
+Overall.ER  0.2330435 0.1982609
+Overall.BER 0.2188953 0.1887758
 ```
 
 ``` r
@@ -800,10 +800,10 @@ perf.diablo$WeightedPredict.error.rate
 
 ``` output
                 comp1     comp2
-CD          0.1013889 0.1388889
-Control     0.1581395 0.1441860
-Overall.ER  0.1226087 0.1408696
-Overall.BER 0.1297642 0.1415375
+CD          0.1069444 0.1486111
+Control     0.1744186 0.1441860
+Overall.ER  0.1321739 0.1469565
+Overall.BER 0.1406815 0.1463986
 ```
 
 From the results above, it can be seen that the error rate is quite low across the board, suggesting good classification performance. Let's try the model on the test set to see how good it is at classifying novel samples.
@@ -840,7 +840,7 @@ confusion.mat
 ``` output
         predicted.as.CD predicted.as.Control
 CD                   14                    2
-Control               2                   11
+Control               1                   12
 ```
 
 The balanced error rate (BER) remains low, confirming that the DIABLO signature generalises well to the unseen test samples and performs similarly across both classes.
@@ -851,7 +851,7 @@ get.BER(confusion.mat)
 ```
 
 ``` output
-[1] 0.1394231
+[1] 0.1009615
 ```
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
