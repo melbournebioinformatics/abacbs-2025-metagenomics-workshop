@@ -634,10 +634,10 @@ list.keepX
 
 ``` output
 $microb
-[1] 9 5
+[1] 25  5
 
 $metab
-[1] 30 16
+[1] 30 25
 ```
 
 ### Final DIABLO model
@@ -788,10 +788,10 @@ perf.diablo$MajorityVote.error.rate
 ``` output
 $centroids.dist
                 comp1     comp2
-CD          0.2750000 0.2263889
-Control     0.1627907 0.1511628
-Overall.ER  0.2330435 0.1982609
-Overall.BER 0.2188953 0.1887758
+CD          0.2305556 0.2083333
+Control     0.1186047 0.1209302
+Overall.ER  0.1886957 0.1756522
+Overall.BER 0.1745801 0.1646318
 ```
 
 ``` r
@@ -800,10 +800,10 @@ perf.diablo$WeightedPredict.error.rate
 
 ``` output
                 comp1     comp2
-CD          0.1069444 0.1486111
-Control     0.1744186 0.1441860
-Overall.ER  0.1321739 0.1469565
-Overall.BER 0.1406815 0.1463986
+CD          0.1194444 0.1611111
+Control     0.1534884 0.1441860
+Overall.ER  0.1321739 0.1547826
+Overall.BER 0.1364664 0.1526486
 ```
 
 From the results above, it can be seen that the error rate is quite low across the board, suggesting good classification performance. Let's try the model on the test set to see how good it is at classifying novel samples.
