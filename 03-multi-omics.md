@@ -634,10 +634,10 @@ list.keepX
 
 ``` output
 $microb
-[1] 25  5
+[1] 16  5
 
 $metab
-[1] 30 25
+[1]  5 30
 ```
 
 ### Final DIABLO model
@@ -788,10 +788,10 @@ perf.diablo$MajorityVote.error.rate
 ``` output
 $centroids.dist
                 comp1     comp2
-CD          0.2305556 0.2083333
-Control     0.1186047 0.1209302
-Overall.ER  0.1886957 0.1756522
-Overall.BER 0.1745801 0.1646318
+CD          0.2444444 0.2138889
+Control     0.1558140 0.1976744
+Overall.ER  0.2113043 0.2078261
+Overall.BER 0.2001292 0.2057817
 ```
 
 ``` r
@@ -800,10 +800,10 @@ perf.diablo$WeightedPredict.error.rate
 
 ``` output
                 comp1     comp2
-CD          0.1194444 0.1611111
-Control     0.1534884 0.1441860
-Overall.ER  0.1321739 0.1547826
-Overall.BER 0.1364664 0.1526486
+CD          0.1222222 0.1305556
+Control     0.1465116 0.1674419
+Overall.ER  0.1313043 0.1443478
+Overall.BER 0.1343669 0.1489987
 ```
 
 From the results above, it can be seen that the error rate is quite low across the board, suggesting good classification performance. Let's try the model on the test set to see how good it is at classifying novel samples.
@@ -840,7 +840,7 @@ confusion.mat
 ``` output
         predicted.as.CD predicted.as.Control
 CD                   14                    2
-Control               1                   12
+Control               2                   11
 ```
 
 The balanced error rate (BER) remains low, confirming that the DIABLO signature generalises well to the unseen test samples and performs similarly across both classes.
@@ -851,7 +851,7 @@ get.BER(confusion.mat)
 ```
 
 ``` output
-[1] 0.1009615
+[1] 0.1394231
 ```
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
